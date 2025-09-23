@@ -1,0 +1,29 @@
+# 排除开发环境配置
+.vscode/
+.vscode-test/
+
+# 排除源代码（只保留编译后的代码）
+src/
+tsconfig.json
+
+# 排除开发文档
+*.md
+!README.md
+!CHANGELOG.md
+
+# 排除测试文件
+test/
+cases/
+
+# 排除缓存和临时文件
+node_modules/
+*.log
+*.tmp
+
+out/test
+
+# 排除其他开发文件
+CACHE_OPTIMIZATION.md
+DEMO.md
+HOW_TO_SEE_EFFECT.md
+REFACTOR_SUMMARY.md
