@@ -21,6 +21,7 @@
     "color": "#007ACC",
     "theme": "dark"
   },
+  "icon": "log.png",
   "keywords": [
     "sql",
     "database",
