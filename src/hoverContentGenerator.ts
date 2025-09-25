@@ -120,11 +120,11 @@ export class HoverContentGenerator {
             html += '<tr>\n';
             row.forEach(cell => {
                 if (cell.includes('\n')) {
-                    // 多行内容使用 <pre> 标签，禁止自动换行
+                    // 多行内容使用 <pre> 标签，保留格式
                     const escaped = this.escapeHtml(cell);
-                    html += `<td><pre style="white-space: pre; overflow-x: auto;">${escaped}</pre></td>\n`;
+                    html += `<td><pre>${escaped}</pre></td>\n`;
                 } else {
-                    // 单行内容直接显示
+                    // 单行内容直接显示，空格已被转义为 &nbsp;
                     html += `<td>${this.escapeHtml(cell)}</td>\n`;
                 }
             });
@@ -149,28 +149,7 @@ export class HoverContentGenerator {
             .replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;')
             .replace(/'/g, '&#39;')
-            .replace(/\n/g, '<br>');
+            .replace(/\n/g, '<br>')
+            .replace(/ /g, '&nbsp;'); // 转义空格为 &nbsp;
     }
-
-    /**
-     * 转义 Markdown 特殊字符
-     * @param text 文本
-     * @returns 转义后的文本
-     */
-    private escapeMarkdown(text: string): string {
-        return text
-            .replace(/\\/g, '\\\\')
-            .replace(/\|/g, '\\|')
-            .replace(/\*/g, '\\*')
-            .replace(/_/g, '\\_')
-            .replace(/`/g, '\\`')
-            .replace(/#/g, '\\#')
-            .replace(/\[/g, '\\[')
-            .replace(/\]/g, '\\]')
-            .replace(/\(/g, '\\(')
-            .replace(/\)/g, '\\)')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
-    }
-
 }

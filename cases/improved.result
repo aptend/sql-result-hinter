@@ -1,21 +1,22 @@
 #SQL[@1,N32]Result[]
-create database if not exists db
+create database if not exists db;
 
 #SQL[@3,N6]Result[]
-use db
+use db;
 
 #SQL[@5,N22]Result[]
-drop table if exists t
+drop table if exists t;
 
 #SQL[@7,N49]Result[]
-create table t(a int,  b int, primary key (a, b))
+create table t(a int,  b int, primary key (a, b));
 
-#SQL[@9,N43]Error[53]
-insert into t values (1, 1), (1, 1), (2, 2)
-1062 (HY000): Duplicate entry '(1,1)' for key '(a,b)'
+#SQL[@9,N43]Result[11, 39]
+insert into t values (1, 1), (1, 1), (2, 2);
+Regex Check
+Duplicate entry '(1, 1)' for key '(.*)'
 
 #SQL[@12,N36]Result[23, 79]
-select mo_ctl('dn', 'flush', 'db.t')
+select mo_ctl('dn', 'flush', 'db.t');
 mo_ctl(dn, flush, db.t)
 {
   "method": "Flush",
@@ -28,91 +29,91 @@ mo_ctl(dn, flush, db.t)
 
 
 #SQL[@14,N26]Result[]
-drop database if exists db
+drop database if exists db;
 
 #SQL[@16,N61]Result[48, 10]
 select 
     current_account_name(),
     current_account_id()
-
+;
 current_account_name()  ¦  current_account_id()
 sys  ¦  0
 
 #SQL[@22,N26]Result[19, 4]
-select current_user_name()
+select current_user_name();
 current_user_name()
 dump
 
 #SQL[@23,N24]Result[17, 1]
-select current_user_id()
+select current_user_id();
 current_user_id()
 1
 
 #SQL[@24,N26]Result[19, 7]
-select current_role_name()
+select current_role_name();
 current_role_name()
 moadmin
 
 #SQL[@25,N24]Result[17, 1]
-select current_role_id()
+select current_role_id();
 current_role_id()
 0
 
 #SQL[@26,N36]Result[84, 47]
-select * from current_account() as t
+select * from current_account() as t;
 account_name  ¦  account_id  ¦  user_name  ¦  user_id  ¦  role_name  ¦  role_id
 sys  ¦  0  ¦  dump  ¦  1  ¦  moadmin  ¦  0
 
 #SQL[@28,N26]Result[]
-drop account if exists abc
+drop account if exists abc;
 
 #SQL[@29,N60]Result[]
-create account abc ADMIN_NAME 'admin' IDENTIFIED BY '123456'
+create account abc ADMIN_NAME 'admin' IDENTIFIED BY '123456';
 
 #SQL[@34,N29]Result[]
-drop role if exists test_role
+drop role if exists test_role;
 
 #SQL[@35,N21]Result[]
-create role test_role
+create role test_role;
 
 #SQL[@36,N24]Result[]
-grant test_role to admin
+grant test_role to admin;
 
 #SQL[@37,N18]Result[]
-set role test_role
+set role test_role;
 
 #SQL[@39,N29]Result[22, 3]
-select current_account_name()
+select current_account_name();
 current_account_name()
 abc
 
 #SQL[@40,N26]Result[19, 5]
-select current_user_name()
+select current_user_name();
 current_user_name()
 admin
 
 #SQL[@41,N24]Result[17, 1]
-select current_user_id()
+select current_user_id();
 current_user_id()
 2
 
 #SQL[@42,N26]Result[19, 9]
-select current_role_name()
+select current_role_name();
 current_role_name()
 test_role
 
 #SQL[@55,N24]Result[17, 1]
-select current_user_id()
+select current_user_id();
 current_user_id()
 1
 
 #SQL[@56,N26]Result[19, 7]
-select current_role_name()
+select current_role_name();
 current_role_name()
 moadmin
 
 #SQL[@57,N24]Result[17, 1]
-select current_role_id()
+select current_role_id();
 current_role_id()
 0
 

@@ -59,20 +59,6 @@
         ]
       }
     ],
-    "commands": [
-      {
-        "command": "sqlResultHint.goToResult",
-        "title": "显示 SQL 结果",
-        "category": "SQL Result Hint",
-        "icon": "$(database)"
-      },
-      {
-        "command": "sqlResultHint.goToSql",
-        "title": "跳转到 SQL 文件",
-        "category": "SQL Result Hint",
-        "icon": "$(file-code)"
-      }
-    ],
     "menus": {
       "editor/context": [
         {

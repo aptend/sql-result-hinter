@@ -1,10 +1,10 @@
 #SQL[@2,N22]Result[10, 1]
-SELECT 1 as test_value
+SELECT 1 as test_value;
 test_value
 1
 
 #SQL[@5,N31]Result[7, 11]
-SELECT 'Hello World' as message
+SELECT 'Hello World' as message;
 message
 Hello World
 

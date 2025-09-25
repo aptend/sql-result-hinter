@@ -163,7 +163,7 @@ export class ResultFileParser {
         if (sqlLength > 0) {
             return {
                 sqlContent: content.substring(0, sqlLength).trim(),
-                remainingContent: content.substring(sqlLength)
+                remainingContent: content.substring(sqlLength+2 /*去除尾部分号和换行*/ )
             };
         }
         

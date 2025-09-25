@@ -2,13 +2,13 @@
 CREATE TABLE test_table (
     id INT PRIMARY KEY,
     name VARCHAR(100)
-)
+);
 
 #SQL[@7,N54]Result[]
-INSERT INTO test_table VALUES (1, 'Alice'), (2, 'Bob')
+INSERT INTO test_table VALUES (1, 'Alice'), (2, 'Bob');
 
 #SQL[@9,N24]Result[12, 12, 10]
-SELECT * FROM test_table
+SELECT * FROM test_table;
 id  ¦  name
 1  ¦  Alice
 2  ¦  Bob
